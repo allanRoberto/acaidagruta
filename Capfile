@@ -115,12 +115,12 @@ namespace :db do
       # For my server I have to source my bash_profile to get the wp command to work. On other hosts, this might not be necessary, so you can uncomment the line below and commemt out or delete the second version. Otherwise just keep the original line and edit the /path-to/.bash_profile
       #FIXME
       # run cd #{deploy_to}/current/webroot && #{wp} db export #{temp} && cd -"
-      run "source /path-to/.bash_profile && cd #{deploy_to}/current/webroot && #{wp} db export #{temp} && cd -"
+      run "cd #{deploy_to}/current/webroot && #{wp} db export #{temp} && cd -"
       download("#{temp}", "db/#{filename}", :via=> :scp)
       if "#{stage}" == "prod"
-        search = "yourdomain.com" #FIXME
+        search = "artezzo.com.br" #FIXME
       else
-        search = "#{application}-#{stage}.yourdomain.com" #FIXME
+        search = "#{application}.artezzo.com.br" #FIXME
       end
       replace = local_domain
       puts "searching (#{search}) and replacing (#{replace}) domain information"

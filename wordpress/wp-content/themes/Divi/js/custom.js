@@ -32,6 +32,28 @@
 		$et_pb_first_row = $( 'body.et_pb_pagebuilder_layout .et_pb_section:first-child' );
 
 	$(document).ready( function(){
+
+		$('.owl-carousel').owlCarousel({
+		    loop:true,
+		    margin:10,
+		    responsiveClass:true,
+		    dots:true,
+		    responsive:{
+		        0:{
+		            items:1,
+		            nav:false
+		        },
+		        600:{
+		            items:1,
+		            nav:false
+		        },
+		        1000:{
+		            items:1,
+		            nav:false,
+		        }
+		    }
+		})
+
 		var $et_top_menu = $( 'ul.nav' ),
 			$et_search_icon = $( '#et_search_icon' ),
 			et_parent_menu_longpress_limit = 300,

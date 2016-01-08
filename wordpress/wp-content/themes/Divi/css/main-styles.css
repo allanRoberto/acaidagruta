@@ -590,12 +590,12 @@ span.comment_date { color: #000; font-size: 14px; font-weight: 300; }
 
 	/* Widgets */
  	#footer-widgets { padding: 6% 0 0; }
-	.footer-widget { float: left; color: #fff; }
+	.footer-widget { float: left; }
 	.last { margin-right: 0; }
 	.footer-widget .fwidget:last-child { margin-bottom: 0 !important; }
 	#footer-widgets .footer-widget li { padding-left: 14px; position: relative; }
 	#footer-widgets .footer-widget li:before { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border-style: solid; border-width: 3px; content: ""; left: 0; position: absolute; top: 9px; }
-	#footer-widgets .footer-widget li a { color: #fff; text-decoration: none; }
+	#footer-widgets .footer-widget li a { text-decoration: none; }
 	#footer-widgets .footer-widget li a:hover { color: rgba(255, 255, 255, 0.7); }
 	.footer-widget .widget_adsensewidget ins { min-width: 160px; }
 

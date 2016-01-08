@@ -139,6 +139,9 @@ function et_divi_load_scripts_styles(){
 		wp_enqueue_script( 'comment-reply' );
 
 	wp_enqueue_script( 'divi-custom-script', $template_dir . '/js/custom.js', array( 'jquery' ), $theme_version, true );
+	wp_enqueue_script( 'owl-carousel-script', $template_dir . '/js/owl-carousel/owl.carousel.min.js', array( 'jquery' ), $theme_version, true );
+
+
 
 	if ( 'on' === et_get_option( 'divi_smooth_scroll', false ) ) {
 		wp_enqueue_script( 'smooth-scroll', $template_dir . '/js/smoothscroll.js', array( 'jquery' ), $theme_version, true );
@@ -173,6 +176,9 @@ function et_divi_load_scripts_styles(){
 	 * Loads the main stylesheet.
 	 */
 	wp_enqueue_style( 'divi-style', get_stylesheet_uri(), array(), $theme_version );
+	wp_enqueue_style( 'owl-carrousel-style', $template_dir . '/js/owl-carousel/assets/owl.carousel.css', array(), $theme_version );
+	wp_enqueue_style( 'owl-carrousel-style-theme', $template_dir . '/js/owl-carousel/assets/owl.theme.default.css', array(), $theme_version );
+
 }
 add_action( 'wp_enqueue_scripts', 'et_divi_load_scripts_styles' );
 
@@ -8035,3 +8041,36 @@ if ( class_exists( 'WooCommerce' ) ) {
 		woocommerce_related_products( $woocommerce_args );
 	}
 }
+
+
+function carousel_beneficios( $atts, $content = null ) {
+	
+		$the_query = new WP_Query( array( 'category_name' => 'beneficios' ) );
+
+		if ( $the_query->have_posts() ) {
+			  $output = '<div class="owl-carousel owl-theme">';
+			 while ( $the_query->have_posts() ) : $the_query->the_post(); 
+				$output .=' <div class="et_pb_row">
+								<div class="et_pb_column et_pb_column_1_2 et_pb_column_2">
+									<div class="thumbnail_carousel">
+								 		'.get_the_post_thumbnail().'
+									</div>
+								</div>
+								<div class="et_pb_column et_pb_column_1_2 et_pb_column_2">
+									<h1 class="title-carousel text-title">' . get_the_title() . '</h1>
+									<p>'. get_the_content() .'</p>
+								</div>
+							</div>';	
+			endwhile;
+			$output .= '</div>';
+		} else {
+			$output = 'Nenhuma postagem relacionada';
+		}
+			/* Restore original Post Data */
+
+			return $output;
+			wp_reset_query();
+		}
+
+
+add_shortcode( 'beneficios', 'carousel_beneficios' );

@@ -10,7 +10,149 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 /* Main Theme Styles */
+
+
 @import url("./css/main-styles.css?ver=2.5.3");
 
 /* Page Builder Modules Styles */
 @import url("./includes/builder/styles/frontend-builder-style.css?ver=2.5.3");
+
+
+@font-face {
+	font-family: 'Calibri';
+	src: url('fonts/Calibri.eot');
+	src: url('fonts/Calibri.eot?#iefix') format('embedded-opentype'),
+		url('fonts/Calibri.woff') format('woff'),
+		url('fonts/Calibri.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Tekton';
+	src: url('fonts/Tekton.eot');
+	src: url('fonts/Tekton.eot?#iefix') format('embedded-opentype'),
+		url('fonts/Tekton.woff') format('woff'),
+		url('fonts/Tekton.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: 'Calibri' !important;
+	font-size: 17px;
+}
+
+.text-title, .footer-widget .title {
+	font-family: 'Tekton';
+	font-weight: 900;
+}
+
+#footer-widgets .footer-widget li:before {
+	content: none !important;
+}
+
+#top-menu {
+	background: #fff;
+    padding-left: 25px;
+    padding-right: 25px;
+    -webkit-box-shadow: 0px 2px 13px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow:    0px 2px 13px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         0px 2px 13px 0px rgba(50, 50, 50, 0.75)
+}
+
+
+.et_header_style_split #et-top-navigation nav > ul > li > a {
+    padding-bottom: 29px !important;
+    padding-top: 29px !important;
+}
+
+.logo_container a{
+	top: 4px;
+}
+
+.et_header_style_split #et-top-navigation {
+	padding-top: 35px !important;
+}
+
+.title-contact {
+	   	font-family: 'Tekton' !important;
+	   	line-height: 28px;
+	   	margin-bottom: 0px !important;
+}
+
+.text-contact {
+	padding-left: 20px !important;
+	margin-bottom: 10px !important;
+}
+
+
+.icon-social {
+	width:19px;
+	height: 19px;
+	display: inline-block;
+	text-indent: -99999px;
+  background-size: contain !important; 
+}
+
+.fwidget .icon-social {
+  width:29px;
+  height: 29px;
+  display: inline-block;
+  text-indent: -99999px;
+  background-size: contain !important; 
+  margin-right: 5px;
+}
+
+.icon-google {
+	background: url('images/icon-google.jpg') left top no-repeat;
+		text-indent: -99999px;
+
+}
+
+.icon-instagram {
+	background: url('images/icon-instagram.jpg') left top no-repeat;
+		text-indent: -99999px;
+
+}
+
+.icon-facebook {
+	background: url('images/icon-facebook.jpg') left top no-repeat;
+		text-indent: -99999px;
+}
+
+.et_pb_gutters3.et_pb_footer_columns3 .footer-widget .fwidget {
+    margin-bottom: 7.54% !important; 
+}
+
+
+.title-contact:before {
+   content: "";
+   width: 20px;
+   height: 28px;
+   display: inline-block;
+   float: left;	   	
+   margin-right: 5px;
+
+}
+
+.et_pb_gutters3.et_pb_footer_columns3 .footer-widget:nth-child(3) {
+	text-align: right;
+}
+
+
+.title-adress:before {
+  background: url('images/icon-footer-adress.jpg') left top no-repeat;
+}
+
+.title-phone:before {
+  background: url('images/icon-footer-phone.jpg') left top no-repeat;
+}
+
+.title-emails:before {
+  background: url('images/icon-footer-email.jpg') left top no-repeat;
+}
+
+#main-footer {
+  background: url('images/bg-footer.jpg') center top no-repeat !important;
+}
