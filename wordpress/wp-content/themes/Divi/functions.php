@@ -8072,5 +8072,39 @@ function carousel_beneficios( $atts, $content = null ) {
 			wp_reset_query();
 		}
 
-
 add_shortcode( 'beneficios', 'carousel_beneficios' );
+
+
+function grid_produtos($atts, $content = null) {
+	$the_query = new WP_Query( array( 'category_name' => 'produtos',
+	'posts_per_page' => 6
+ ) );
+
+	if ( $the_query->have_posts() ) {
+			  $output  .= '<div class="grid">'; 	
+			 while ( $the_query->have_posts() ) : $the_query->the_post(); 
+				$output .=' 
+					<figure class="effect-sadie">
+
+						'.get_the_post_thumbnail().'
+						<figcaption>
+							<a href="#">View more</a>
+							<h2>'.get_the_title().'</h2>
+						</figcaption>			
+					</figure>
+									';	
+			endwhile;
+			$output .= "</div>";
+			$output .= '<a href="#" class="load-more-products">Carregar mais produtos</a>';
+		} else {
+			$output = 'Nenhuma postagem relacionada';
+		}
+			/* Restore original Post Data */
+
+			return $output;
+			wp_reset_query();
+		}
+
+
+
+add_shortcode( 'produtos', 'grid_produtos' );
