@@ -141,7 +141,9 @@ function et_divi_load_scripts_styles(){
 	wp_enqueue_script( 'divi-custom-script', $template_dir . '/js/custom.js', array( 'jquery' ), $theme_version, true );
 	wp_enqueue_script( 'owl-carousel-script', $template_dir . '/js/owl-carousel/owl.carousel.min.js', array( 'jquery' ), $theme_version, true );
 
-
+	wp_localize_script( 'divi-custom-script', 'ajax', array(
+		'url' => admin_url( 'admin-ajax.php' )
+	));
 
 	if ( 'on' === et_get_option( 'divi_smooth_scroll', false ) ) {
 		wp_enqueue_script( 'smooth-scroll', $template_dir . '/js/smoothscroll.js', array( 'jquery' ), $theme_version, true );
@@ -8085,12 +8087,13 @@ function grid_produtos($atts, $content = null) {
 			 while ( $the_query->have_posts() ) : $the_query->the_post(); 
 				$output .=' 
 					<figure class="effect-sadie">
-
+						<a href="#" class="load-content" data-id="'.get_the_ID().'">
 						'.get_the_post_thumbnail().'
 						<figcaption>
-							<a href="#">View more</a>
 							<h2>'.get_the_title().'</h2>
-						</figcaption>			
+						</figcaption>
+						</a>
+
 					</figure>
 									';	
 			endwhile;
@@ -8108,3 +8111,50 @@ function grid_produtos($atts, $content = null) {
 
 
 add_shortcode( 'produtos', 'grid_produtos' );
+
+function only_produto($atts, $content = null) {
+	$the_query = new WP_Query( array( 'category_name' => 'produtos',
+	'posts_per_page' => 1
+ ) );
+
+	if ( $the_query->have_posts() ) {
+			  $output  .= '<div class="only-produto">'; 	
+			 while ( $the_query->have_posts() ) : $the_query->the_post(); 
+				$output .='<img src="'.get_field('img-destaque').'" />
+						';	
+			endwhile;
+			$output .= "</div>";
+		} else {
+			$output = 'Nenhuma postagem relacionada';
+		}
+			/* Restore original Post Data */
+
+			return $output;
+			wp_reset_query();
+		}
+
+
+
+add_shortcode( 'produto-only', 'only_produto' );
+
+function load_content_produto(){
+	$id = $_POST['id'];
+
+	$image = get_field('img-destaque', $id);
+
+	if($image) {
+
+
+	}else {
+		$image = get_template_directory_uri().'/images/default.jpg';
+		$image;
+	}
+
+   	echo $image;
+
+	die();
+}
+
+add_action( 'wp_ajax_load_content_produto', 'load_content_produto' );
+add_action( 'wp_ajax_nopriv_load_content_produto', 'load_content_produto' );
+
