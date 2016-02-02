@@ -8120,8 +8120,13 @@ function only_produto($atts, $content = null) {
 	if ( $the_query->have_posts() ) {
 			  $output  .= '<div class="only-produto">'; 	
 			 while ( $the_query->have_posts() ) : $the_query->the_post(); 
-				$output .='<img src="'.get_field('img-destaque').'" />
-						';	
+
+			 		if(get_field('img-destaque')) {
+						$output .='<img src="'.get_field('img-destaque').'" />';
+					}else {
+						$output .= '<img src=".'get_template_directory_uri().'/images/default.jpg" />'; 
+						}	
+					}
 			endwhile;
 			$output .= "</div>";
 		} else {

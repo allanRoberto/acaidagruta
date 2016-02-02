@@ -12,6 +12,6 @@ role :web, "artezzo.com.br" #FIXME
 role :db, "artezzo.com.br", :primary => true #FIXME
 
 # The path to wp-cli
-set :wp, "cd #{current_path}/#{app_root} ; /home/bin/wp" 
+set :wp, "cd #{current_path}/#{app_root} ; /home/artezzo/bin/wp" 
 # The username on the target system, if different from your local username
 ssh_options[:user] = 'artezzo' #FIXME
