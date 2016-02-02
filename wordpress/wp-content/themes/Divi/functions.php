@@ -8124,9 +8124,9 @@ function only_produto($atts, $content = null) {
 			 		if(get_field('img-destaque')) {
 						$output .='<img src="'.get_field('img-destaque').'" />';
 					}else {
-						$output .= '<img src=".'get_template_directory_uri().'/images/default.jpg" />'; 
-						}	
-					}
+						$output .= '<img src="'.get_template_directory_uri().'/images/default.jpg" />'; 
+						};	
+					
 			endwhile;
 			$output .= "</div>";
 		} else {
