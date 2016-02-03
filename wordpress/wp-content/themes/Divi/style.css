@@ -316,3 +316,23 @@ figure.effect-sadie:hover p {
     position: relative;
     z-index: 99999;
 }
+
+#footer-widgets:before {
+	content: "";
+    height: 45px;
+    width: 112%;
+    background: #fff;
+    /* margin-top: 33px; */
+    position: absolute;
+    /* top: -162px; */
+    visibility: visible;
+    display: block;
+    bottom: 120px;
+    z-index: 0;
+    left: -6%;
+}
+
+#footer-widgets .footer-widget {
+	z-index: 2;
+	position: relative;
+}
