@@ -312,4 +312,7 @@ figure.effect-sadie:hover p {
 	    background: #f48120;
     color: #fff;
     padding: 10px;
+    top: 102px;
+    position: relative;
+    z-index: 99999;
 }
