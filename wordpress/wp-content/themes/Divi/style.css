@@ -336,3 +336,7 @@ figure.effect-sadie:hover p {
 	z-index: 2;
 	position: relative;
 }
+
+hr {
+	background: transparent !important; 
+}
