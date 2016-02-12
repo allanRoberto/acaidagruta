@@ -66,6 +66,19 @@
        		return false;
        });
 
+        $('.load-more-products').click(function(){
+        	
+       		$.ajax({
+       			url : ajax.url,
+       			dataType : 'html',
+       			data : { action: 'load_content_produto', id : $(this).attr('data-id') }, 
+       			method : 'POST',
+       		}).complete(function( html ) {
+    			$( ".only-produto img" ).attr( 'src', html.responseText );
+  			   });
+       		return false;
+       });
+
 
 		var $et_top_menu = $( 'ul.nav' ),
 			$et_search_icon = $( '#et_search_icon' ),

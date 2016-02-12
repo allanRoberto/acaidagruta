@@ -263,7 +263,7 @@ figure.effect-sadie h2 {
     background: #fff;
     height: 36px;
     font-size: 14px;
-    z-index: 999999999;
+    z-index: 99;
     color: #e9158b;
     line-height: 38px;
 }
@@ -314,7 +314,7 @@ figure.effect-sadie:hover p {
     padding: 10px;
     top: 102px;
     position: relative;
-    z-index: 99999;
+    z-index: 99;
 }
 
 #footer-widgets:before {

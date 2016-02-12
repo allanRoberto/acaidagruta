@@ -8098,7 +8098,7 @@ function grid_produtos($atts, $content = null) {
 									';	
 			endwhile;
 			$output .= "</div>";
-			$output .= '<a href="#" class="load-more-products">Carregar mais produtos</a>';
+			$output .= '<a href="#" class="load-more-products" data-offset="6">Carregar mais produtos</a>';
 		} else {
 			$output = 'Nenhuma postagem relacionada';
 		}
@@ -8162,4 +8162,43 @@ function load_content_produto(){
 
 add_action( 'wp_ajax_load_content_produto', 'load_content_produto' );
 add_action( 'wp_ajax_nopriv_load_content_produto', 'load_content_produto' );
+
+function load_more_produtos(){
+	$offset = $_POST['offset'];
+
+	$offset_current = $offset + 6;
+
+	$the_query = new WP_Query( array( 'category_name' => 'produtos',
+	'posts_per_page' => 6,
+	'offset' = $offset
+ ) );
+
+	if ( $the_query->have_posts() ) {
+			  $output  .= '<div class="grid">'; 
+			 while ( $the_query->have_posts() ) : $the_query->the_post(); 
+				$output .=' 
+					<figure class="effect-sadie">
+						<a href="#" class="load-content" data-id="'.get_the_ID().'">
+						'.get_the_post_thumbnail().'
+						<figcaption>
+							<h2>'.get_the_title().'</h2>
+						</figcaption>
+						</a>
+
+					</figure>
+									';	
+			endwhile;
+			$output .= "</div>";
+			$output .= '<a href="#" class="load-more-products" data-offset="'.$offset_current.'">Carregar mais produtos</a>';
+		} else {
+			$output = 'Nenhuma postagem relacionada';
+		}
+			/* Restore original Post Data */
+
+			return $output;
+			wp_reset_query();
+}
+
+add_action( 'wp_ajax_load_more_produtos', 'load_content_produto' );
+add_action( 'wp_ajax_nopriv_load_more_produtos', 'load_content_produto' );
 
