@@ -170,9 +170,10 @@ body {
 	cursor: pointer;
 	width: 32%;
     float: left;
-margin-right: -5% !important;
+margin-right: 0% !important;
     margin-bottom: 10px !important;
-    }
+    margin-left: 9px;
+}
 
 .grid figure img {
 	position: relative;
