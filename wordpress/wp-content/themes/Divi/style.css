@@ -128,8 +128,8 @@ body {
 
 .title-contact:before {
    content: "";
-   width: 20px;
-   height: 28px;
+   width: 22px;
+   height: 22px;
    display: inline-block;
    float: left;	   	
    margin-right: 5px;
