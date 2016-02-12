@@ -163,10 +163,6 @@ body {
 	margin-right: 2%;
 }
 
-.grid figure:nth-child(3n) {
-	margin-right: 0px !important;
-}
-
 .grid figure {
 	position: relative;
 	overflow: hidden;
