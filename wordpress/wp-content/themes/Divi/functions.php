@@ -8170,7 +8170,7 @@ function load_more_produtos(){
 
 	$the_query = new WP_Query( array( 'category_name' => 'produtos',
 	'posts_per_page' => 6,
-	'offset' = $offset
+	'offset' => $offset
  ) );
 
 	if ( $the_query->have_posts() ) {
@@ -8195,10 +8195,11 @@ function load_more_produtos(){
 		}
 			/* Restore original Post Data */
 
-			return $output;
+			echo $output;
+			die();
 			wp_reset_query();
 }
 
-add_action( 'wp_ajax_load_more_produtos', 'load_content_produto' );
-add_action( 'wp_ajax_nopriv_load_more_produtos', 'load_content_produto' );
+add_action( 'wp_ajax_load_more_produtos', 'load_more_produtos' );
+add_action( 'wp_ajax_nopriv_load_more_produtos', 'load_more_produtos' );
 

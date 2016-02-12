@@ -71,10 +71,10 @@
        		$.ajax({
        			url : ajax.url,
        			dataType : 'html',
-       			data : { action: 'load_content_produto', id : $(this).attr('data-id') }, 
+       			data : { action: 'load_more_produtos', id : $(this).attr('data-id') }, 
        			method : 'POST',
        		}).complete(function( html ) {
-    			$( ".only-produto img" ).attr( 'src', html.responseText );
+    			$( ".grid" ).append( html.responseText );
   			   });
        		return false;
        });
