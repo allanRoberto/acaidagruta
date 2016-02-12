@@ -75,6 +75,7 @@
        			method : 'POST',
        		}).complete(function( html ) {
     			$( ".grid" ).append( html.responseText );
+    			$(this).css('display', 'none');
   			   });
        		return false;
        });
