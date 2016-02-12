@@ -75,7 +75,9 @@
        			method : 'POST',
        		}).complete(function( html ) {
     			$( ".grid" ).html( html.responseText );
-    			offset = $(this).attr('data-offset') + 6;
+    			offset = $('.load-more-products').attr('data-offset');
+    			offset = parseInt(offset);
+    			offset = offset + 6;
     			$('.load-more-products').attr('data-offset', offset);
   			   });
        		return false;
