@@ -80,7 +80,6 @@
     			offset = offset + 6;
     			$('.load-more-products').attr('data-offset', offset);
   			   });
-       		return false;
        });
 
 

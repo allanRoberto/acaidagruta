@@ -8098,7 +8098,7 @@ function grid_produtos($atts, $content = null) {
 									';	
 			endwhile;
 			$output .= "</div>";
-			$output .= '<a href="#" class="load-more-products" data-offset="6">Carregar mais produtos</a>';
+			$output .= '<a href="#produtos-grid" class="load-more-products" data-offset="6">Carregar mais produtos</a>';
 		} else {
 			$output = 'Nenhuma postagem relacionada';
 		}
