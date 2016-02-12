@@ -74,7 +74,7 @@
        			data : { action: 'load_more_produtos', id : $(this).attr('data-id') }, 
        			method : 'POST',
        		}).complete(function( html ) {
-    			$( ".grid" ).append( html.responseText );
+    			$( ".grid" ).html( html.responseText );
     			$(this).css('display', 'none');
   			   });
        		return false;
