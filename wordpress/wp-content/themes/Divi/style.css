@@ -165,7 +165,7 @@ body {
 
 @media all and ( max-width: 460px ) { 
 .grid figure {
-	width: 100%;
+	width: 100% !important;
 	float: left;
 	margin-right: 2%;
 }
