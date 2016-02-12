@@ -8189,7 +8189,6 @@ function load_more_produtos(){
 									';	
 			endwhile;
 			$output .= "</div>";
-			$output .= '<a href="#" class="load-more-products" data-offset="'.$offset_current.'">Carregar mais produtos</a>';
 		} else {
 			$output = 'Nenhuma postagem relacionada';
 		}

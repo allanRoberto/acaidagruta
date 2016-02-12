@@ -71,11 +71,12 @@
        		$.ajax({
        			url : ajax.url,
        			dataType : 'html',
-       			data : { action: 'load_more_produtos', id : $(this).attr('data-id') }, 
+       			data : { action: 'load_more_produtos', offset : $(this).attr('data-offset') }, 
        			method : 'POST',
        		}).complete(function( html ) {
     			$( ".grid" ).html( html.responseText );
-    			$(this).css('display', 'none');
+    			offset = $(this).attr('data-offset') + 6;
+    			$('.load-more-products').attr('data-offset', offset);
   			   });
        		return false;
        });
